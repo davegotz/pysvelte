@@ -11,7 +11,7 @@ app = Flask(__name__)
 @app.route('/test')
 def index():
     # Create a list of 10 random integers.
-    randvals = [random.randint(1, 1000) for x in range(8)]
+    randvals = [random.randint(1, 500) for x in range(8)]
 
     # Return as a dictionary, which flask auto-converts to json
     return {'data': randvals}

@@ -1,6 +1,5 @@
 <script>
     import { onMount, afterUpdate, createEventDispatcher } from 'svelte';
-
     import * as d3 from 'd3';
 
     const dispatch = createEventDispatcher();
