@@ -88,4 +88,6 @@
 </style>
 
 <slot name="header"><div>Default header</div></slot>
+The current count is {count}.
+<br/>
 <svg style="border: 1px solid black; height: 300px; width: 1000px;" bind:this={el}></svg>

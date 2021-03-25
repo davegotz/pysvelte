@@ -2,13 +2,14 @@
     import D3Chart from './D3Chart.svelte'
     import D3DOMChart from './D3DOMChart.svelte'
     import { Tabs, Tab, TabContent } from "carbon-components-svelte";
+    // Theme options: white, g10, g90, g100
     import 'carbon-components-svelte/css/g10.css'
 	let count = 0;
 
 </script>
 
 <p>Count: {count}</p>
-<p>Cut Count: {count/2}</p>
+<p>Half Count: {count/2}</p>
 <button on:click={() => {
     return count += 1;
 }}>+</button>
