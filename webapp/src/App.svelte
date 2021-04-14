@@ -1,4 +1,5 @@
 <script>
+    import { getCookie, setCookie } from './cookies.js'
     import Login from './Login.svelte'
     import D3Chart from './D3Chart.svelte'
     import D3DOMChart from './D3DOMChart.svelte'
@@ -16,6 +17,10 @@
     let isAboutModalOpen = false;
     let username = null;
 
+    // Look for the user name in a cookie.  Use it if it exists.
+    let username_cookie = getCookie("username");
+    if (username_cookie.length > 0)
+        username = username_cookie;
 </script>
 
 <Header company="VACLab" platformName="Bias Report" persistentHamburgerMenu={true} bind:isSideNavOpen>
@@ -40,6 +45,7 @@
           isSideNavOpen=false;
           // Clear the login info
           username = null;
+          setCookie("username","",-1);
       }}/>
     {/if}
   </SideNavItems>
@@ -51,6 +57,7 @@
         <Login on:submit={(d) => {
             console.log(d);
             username = d.detail.username;
+            setCookie("username", username, 1);
             console.log('Also have password: ' + d.detail.password);
         }}>
         </Login>

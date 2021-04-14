@@ -7,9 +7,10 @@ app = Flask(__name__)
 # # Define routes for all requests to the server for data.
 # #########################################################
 
+
 # Sample JSON route for random array of data.
 @app.route('/test')
-def index():
+def test():
     # Create a list of 10 random integers.
     randvals = [random.randint(1, 500) for x in range(8)]
 
