@@ -3,6 +3,7 @@
     import Login from './Login.svelte'
     import D3Chart from './D3Chart.svelte'
     import D3DOMChart from './D3DOMChart.svelte'
+    import VACLabVIS from './VACLabVIS.svelte'
     import {
         Content, Grid, Row, Column, Modal,
         SideNavDivider, SideNavItems, SideNav, SideNavLink, Header,
@@ -40,7 +41,7 @@
     }}/>
     <SideNavDivider />
     {#if username != null}
-      <SideNavLink text="Log out" on:click={() => {
+      <SideNavLink text="({ username }) Log out" on:click={() => {
           // Close the side menu.
           isSideNavOpen=false;
           // Clear the login info
@@ -73,6 +74,7 @@
     <Tabs>
         <Tab label="D3 via SVG"/>
         <Tab label="D3 via DOM"/>
+        <Tab label="VACLab VIS Dynamic Resize Test"/>
         <div slot="content">
             <TabContent>
                 <D3Chart bind:count on:hover={d => console.log(d)}>
@@ -84,8 +86,13 @@
                     <div slot="header">DIV-based Chart</div>
                 </D3DOMChart>
             </TabContent>
+            <TabContent>
+                <VACLabVIS on:resize={d => console.log(d.detail)}>
+                </VACLabVIS>
+            </TabContent>
         </div>
     </Tabs>
+    Hello
     </Column></Row></Grid>
 {/if}
 </Content>
