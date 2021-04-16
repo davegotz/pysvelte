@@ -19,7 +19,6 @@
     let el;
 
     onMount(() => {
-
     });
 
     function init() {
